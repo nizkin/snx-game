@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="snake_game.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        #game-container {
+            position: relative;
+            width: 90vw; /* Set to 90% of the viewport width */
+            height: 80vh; /* Set to 80% of the viewport height */
+            max-width: 900px; /* Maximum width for larger screens */
+            max-height: 600px; /* Maximum height for larger screens */
+            border: 2px solid #333;
+            background-color: #8fcf8f; /* Green background color */
+        }
+
+        #control-panel {
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            justify-content: space-between; /* Space between left and right groups */
+            width: 100%; /* Full width of the game container */
+        }
+
+        .direction-buttons {
+            display: flex;
+            flex-direction: column; /* Arrange buttons vertically */
+            align-items: center; /* Center buttons horizontally */
+        }
+
+        .vertical-buttons {
+            display: flex;
+            flex-direction: column; /* Arrange buttons vertically */
+            align-items: center; /* Center buttons horizontally */
+        }
+
+        .horizontal-buttons {
+            display: flex;
+            flex-direction: row; /* Arrange buttons horizontally */
+            justify-content: center; /* Center buttons */
+        }
+
+        button {
+            margin: 5px;
+            padding: 15px; /* Increased padding for a better touch target */
+            font-size: 18px;
+            cursor: pointer;
+            flex: 1; /* Allow buttons to grow equally */
+            min-width: 80px; /* Minimum width for touch targets */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #fff; /* White background */
+            border: 2px solid #333; /* Dark border */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #e0e0e0; /* Light gray background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="control-panel">
+            <!-- Left: Left and Right buttons -->
+            <div class="horizontal-buttons">
+                <button id="button-left" style="display: none;">&larr;</button>
+                <button id="button-right" style="display: none;">&rarr;</button>
+            </div>
+            <!-- Right: Up and Down buttons -->
+            <div class="vertical-buttons">
+                <button id="button-up" style="display: none;">&uarr;</button>
+                <button id="button-down" style="display: none;">&darr;</button>
+            </div>
+        </div>
+        <!-- Control buttons: Start and Restart -->
+        <div id="control-buttons" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">
+            <button id="start-button">Start Game</button>
+            <button id="restart-button" style="display: none;">Restart Game</button>
+        </div>
+    </div>
+</body>
+</html>
